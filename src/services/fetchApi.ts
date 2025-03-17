@@ -1,5 +1,7 @@
 //we create a fetch api function with many fuctions within
 
+import { SearchParams, SearchResults } from "../types";
+
 //we set the URL which in
 const API_URL = "http://localhost:5173/";
 //let's set the defailt headers as well
@@ -75,5 +77,78 @@ export const auth = {
     await fetchApiWithAuth("/auth/logout", {
       method: "POST",
     });
+  },
+};
+
+//now we need another object that will have different methods, we will call it dogs, since it will have all the dog-related methods we need
+export const dogs = {
+  //
+  //first we need to fetch dogs by breed. We will create a method using fetchApiWithAuth
+  //since we are waiting for an array of strings, let's make sure we type this
+  breeds: async (): Promise<string[]> => {
+    //
+    //since this is an async method, we await and do the fetch and we return an array
+    return await fetchApiWithAuth<string[]>("/dogs/breeds", {});
+  },
+  //
+  //
+  //
+  //here we will handle the search method
+  //for search we need a query type query Params, which is type searchParams
+  search: async (searchParam: SearchParams): Promise<SearchResults> => {
+    //first we need to instatiate a new URLsearchParams
+    const returnQuery = new URLSearchParams();
+
+    //now URLsearchParams creates an iterable object, that has keys and values
+    //we will handle the arrays firsts, we will create an const that appends arrays
+    //check values if they are empty, AK if length > 0, we will do a forEach, and append function queryParam, and value
+    const appendArray = (
+      appendArrayQuery: string,
+      appendArrayValue?: string[],
+    ) => {
+      //we check if appendArrayValue exist, and if has values, in this case because its an array we check its length
+      if (appendArrayValue && appendArrayValue.length > 0) {
+        //
+        //
+        //we will loop thru values, and append the appendArrayQuery, and appendArrayValue to returnQuery
+        appendArrayValue.forEach((value: string) =>
+          returnQuery.append(appendArrayQuery, value),
+        );
+      }
+    };
+
+    //after we create appendArray methods, now we can call it by passing the search param, and value of the param
+    appendArray("breeds", searchParam.breeds);
+    appendArray("zipCodes", searchParam.zipCodes);
+
+    //
+    //now its time to handle searches of things like strings or numbers when they are defined
+    //we will create an append for those things, similarly to the one above
+    //and we will assign it to returnQueryvoid
+    const appendIfDefined = (
+      appendIfDefinedQuery: string,
+      appendIfDefinedValue?: string | number,
+    ) => {
+      //since we don't have to loop thru anything, we will simply assign appendIfDefinedQuery, and appendArrayValue to returnQuery
+      //let's first make sure the value isn't undefined
+      if (appendIfDefinedValue !== undefined) {
+        returnQuery.append(
+          appendIfDefinedQuery,
+          appendIfDefinedValue?.toString(),
+        );
+      }
+    };
+
+    //after creating appendIfDefined method, we can call it and pass the search params, and value
+    appendIfDefined("ageMin", searchParam.ageMin);
+    appendIfDefined("ageMax", searchParam.ageMax);
+    appendIfDefined("size", searchParam.size);
+    appendIfDefined("from", searchParam.from);
+    appendIfDefined("sort", searchParam.sort);
+
+    //and now finally we return the endpoint, by using fetchApiWithAuth, type searchresult
+    return fetchApiWithAuth<SearchResults>(
+      `/dogs/search?${returnQuery.toString()}`,
+    );
   },
 };
