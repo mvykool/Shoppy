@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }: AuthProps) => {
     //we create a try catch block so we have an action, manipulate data, etc
     try {
       console.log("await for api service and pass user");
-      //here we are going to use the method from the fetchApiWithAth object
+      //here we are going to use the method from the fetchApiWithAth function
       await api.auth.login(name, email);
       const newUser = { name, email };
       setUser(newUser);
