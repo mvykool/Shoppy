@@ -1,6 +1,12 @@
 //we create a fetch api function with many fuctions within
-
-import { Dog, Match, SearchParams, SearchResults } from "../types";
+import {
+  Dog,
+  LocationSearchParams,
+  LocationSearchResults,
+  Match,
+  SearchParams,
+  SearchResults,
+} from "../types";
 
 //we set the URL which in
 const API_URL = "http://localhost:5173/";
@@ -61,7 +67,7 @@ async function fetchApiWithAuth<T>(
 //
 //
 //first let's handle auth, we will create an auth object, and export it, it will contain two methods, login and logout
-export const auth = {
+const auth = {
   //we are going to frist handle the login by creating an async method that uses fetchApiWithAuth,
   //to login we simply need a name and an email, and this is method POST
   //we return a Promise type void
@@ -81,7 +87,7 @@ export const auth = {
 };
 
 //now we need another object that will have different methods, we will call it dogs, since it will have all the dog-related methods we need
-export const dogs = {
+const dogs = {
   //
   //first we need to fetch dogs by breed. We will create a method using fetchApiWithAuth
   //since we are waiting for an array of strings, let's make sure we type this
@@ -169,3 +175,34 @@ export const dogs = {
     });
   },
 };
+
+//now we will create the object location, in which we will have two methods, both POST, one will be for search param, and the other one for a zip code
+const location = {
+  //first let's create the zid code method
+  //POST method that takes zip code as params, and pass it in the body
+  zipCode: async (zipCodes: string[]): Promise<string[]> => {
+    return fetchApiWithAuth<string[]>("/locations", {
+      method: "POST",
+      body: JSON.stringify(zipCodes),
+    });
+  },
+  //now we will create a method for search param, the search param will be passed in the body, it has to be type searchParam, and return type searchParamResult
+  search: async (
+    param: LocationSearchParams,
+  ): Promise<LocationSearchResults> => {
+    return fetchApiWithAuth("/locations/search", {
+      method: "POST",
+      body: JSON.stringify(param),
+    });
+  },
+};
+
+//create variable called api that contains all the objects
+const api = {
+  auth,
+  dogs,
+  location,
+};
+
+//and now we will export all the objects as a single variable, instead of export them individually
+export default api;
