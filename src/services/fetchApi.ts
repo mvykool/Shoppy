@@ -1,6 +1,6 @@
 //we create a fetch api function with many fuctions within
 
-import { SearchParams, SearchResults } from "../types";
+import { Dog, Match, SearchParams, SearchResults } from "../types";
 
 //we set the URL which in
 const API_URL = "http://localhost:5173/";
@@ -150,5 +150,22 @@ export const dogs = {
     return fetchApiWithAuth<SearchResults>(
       `/dogs/search?${returnQuery.toString()}`,
     );
+  },
+  //
+  //
+  //now let's create the methods for the /dogs and match endpoints, both are POST
+  //we return an array of dogs, we will pass the ids as body
+  dogs: async (dogsIds: string[]): Promise<Dog[]> => {
+    return fetchApiWithAuth<Dog[]>("/dogs", {
+      method: "POST",
+      body: JSON.stringify(dogsIds),
+    });
+  },
+  //now we will do something very similar, but instead of returning dogs, it will be type match
+  match: async (dogsIds: string[]): Promise<Match> => {
+    return fetchApiWithAuth<Match>("/match", {
+      method: "POST",
+      body: JSON.stringify(dogsIds),
+    });
   },
 };
