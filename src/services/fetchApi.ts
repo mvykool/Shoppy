@@ -8,6 +8,7 @@ const defaultHeaders = {
 };
 
 //we create an async function, and we use a generic, that way we create a flexible function that will take the passed type, and also we return a promise with such type
+//this will be the base function so we can use with other functions for every case
 async function fetchApiWithAuth<T>(
   //we pass the parameters necessary to fetch, and work with in this service, endpoint, and options
   endpoint: string,
@@ -52,3 +53,27 @@ async function fetchApiWithAuth<T>(
     return { error } as T;
   }
 }
+
+//now we have to create the functions with every single type of request we need
+//we need to fetch dogs, location, and handle auth
+//
+//
+//first let's handle auth, we will create an auth object, and export it, it will contain two methods, login and logout
+export const auth = {
+  //we are going to frist handle the login by creating an async method that uses fetchApiWithAuth,
+  //to login we simply need a name and an email, and this is method POST
+  //we return a Promise type void
+  login: async (name: string, email: string): Promise<void> => {
+    await fetchApiWithAuth("/auth/login", {
+      method: "POST",
+      //we stringify the body
+      body: JSON.stringify({ name, email }),
+    });
+  },
+  //and we do the same for a logout function, promise type void, and method POST, we don't need to pass anything to the body
+  logout: async (): Promise<void> => {
+    await fetchApiWithAuth("/auth/logout", {
+      method: "POST",
+    });
+  },
+};
