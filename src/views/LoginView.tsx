@@ -1,5 +1,9 @@
 const LoginView = () => {
-  return <div>login</div>;
+  return (
+    <div>
+      <div></div>
+    </div>
+  );
 };
 
 export default LoginView;
