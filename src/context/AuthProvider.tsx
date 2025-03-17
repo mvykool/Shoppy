@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
 import { AuthContextType, User } from "../types";
 import { AuthContext } from "./AuthContext";
+import api from "../services/fetchApi";
 
 //creating interfaces to pass in props
 interface AuthProps {
@@ -19,8 +20,10 @@ export const AuthProvider = ({ children }: AuthProps) => {
     //we create a try catch block so we have an action, manipulate data, etc
     try {
       console.log("await for api service and pass user");
-
-      //catch block to mandle errors
+      //here we are going to use the method from the fetchApiWithAth object
+      await api.auth.login(name, email);
+      const newUser = { name, email };
+      setUser(newUser);
     } catch (err) {
       console.log("erro", err);
     }
@@ -30,6 +33,9 @@ export const AuthProvider = ({ children }: AuthProps) => {
   const logout = useCallback(async () => {
     try {
       console.log("await for api service and pass user");
+      //here we call logout method from auth object in fetchWithAuth function
+      await api.auth.logout();
+      setUser(null);
     } catch (err) {
       console.log("erro", err);
     }
