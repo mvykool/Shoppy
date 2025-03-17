@@ -1,6 +1,6 @@
 const LoginView = () => {
   return (
-    <div>
+    <div className="bg">
       <div></div>
     </div>
   );

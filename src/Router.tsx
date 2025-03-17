@@ -3,7 +3,7 @@ import Home from "./views/HomeView";
 import LoginView from "./views/LoginView";
 import SearchView from "./views/SearchView";
 
-const Router = () => {
+const Router: React.FC = () => {
   return (
     <Routes>
       <Route path="/login" element={<LoginView />} />
