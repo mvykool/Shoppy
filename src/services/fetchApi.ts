@@ -9,7 +9,7 @@ import {
 } from "../types";
 
 //we set the URL which in
-const API_URL = "http://localhost:5173/";
+const API_URL = "http://localhost:5173";
 //let's set the defailt headers as well
 const defaultHeaders = {
   "Content-type": "application/json",

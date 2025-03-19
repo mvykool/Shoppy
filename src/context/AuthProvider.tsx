@@ -11,7 +11,12 @@ interface AuthProps {
 //exporting function, and passing props
 export const AuthProvider = ({ children }: AuthProps) => {
   //set state to USER and null
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<User | null>(() => {
+    //we create a variable in localstorage, name it store user, give it a key "user"
+    //if storeUser has a value, take it from JSON format and parse it, otherwise, return null
+    const storeUser = localStorage.getItem("user");
+    return storeUser ? JSON.parse(storeUser) : null;
+  });
 
   //use callback to avoid render every time this is called and pass name and email to this function as parameters
   //we create an async function so it works asynchronously
@@ -21,9 +26,11 @@ export const AuthProvider = ({ children }: AuthProps) => {
     try {
       console.log("await for api service and pass user");
       //here we are going to use the method from the fetchApiWithAth function
+      //we store the newUser in localStorage
       await api.auth.login(name, email);
       const newUser = { name, email };
       setUser(newUser);
+      localStorage.setItem("user", JSON.stringify(newUser));
     } catch (err) {
       console.log("erro", err);
     }
@@ -33,9 +40,10 @@ export const AuthProvider = ({ children }: AuthProps) => {
   const logout = useCallback(async () => {
     try {
       console.log("await for api service and pass user");
-      //here we call logout method from auth object in fetchWithAuth function
+      //here we call logout method from auth object in fetchWithAuth function, and we remove the user by finding it by key
       await api.auth.logout();
       setUser(null);
+      localStorage.removeItem("user");
     } catch (err) {
       console.log("erro", err);
     }

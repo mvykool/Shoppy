@@ -9,8 +9,8 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   //import isAuthenticated from useAuth
   const { isAuthenticated } = useAuth();
 
-  if (isAuthenticated) {
-    return <Navigate to="/login" />;
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
   }
 
   return <>{children}</>;

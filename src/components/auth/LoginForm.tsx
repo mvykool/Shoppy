@@ -29,7 +29,7 @@ export const LoginForm = ({ onSubmit, error }: LoginFormProp) => {
     }
   };
   return (
-    <div>
+    <div className="text-black">
       {error ? <div>error</div> : null}
       <div>
         <form onSubmit={handleLogin}>
@@ -48,7 +48,7 @@ export const LoginForm = ({ onSubmit, error }: LoginFormProp) => {
             type="text"
             name={email}
             required
-            placeholder="name"
+            placeholder="email"
             onChange={(e) => setEmail(e.target.value)}
           />
           <button type="submit" disabled={isLoading}>
