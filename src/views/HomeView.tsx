@@ -7,7 +7,7 @@ const Home: React.FC = () => {
   };
   return (
     <div>
-      <div>
+      <div className="text-black bg-blue-400 w-full h-20">
         <h1>title</h1>
         <p>paragraph</p>
         <button onClick={goSearch}>search</button>
