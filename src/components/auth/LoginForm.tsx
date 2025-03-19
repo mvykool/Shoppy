@@ -32,7 +32,6 @@ export const LoginForm = ({ onSubmit, error }: LoginFormProp) => {
     <div>
       {error ? <div>error</div> : null}
       <div>
-        {isLoading ? <div> loading </div> : null}
         <form onSubmit={handleLogin}>
           <label htmlFor="name">name</label>
           <input
@@ -52,7 +51,9 @@ export const LoginForm = ({ onSubmit, error }: LoginFormProp) => {
             placeholder="name"
             onChange={(e) => setEmail(e.target.value)}
           />
-          <button>Login</button>
+          <button type="submit" disabled={isLoading}>
+            {isLoading ? "loading...." : "login"}
+          </button>
         </form>
       </div>
     </div>
