@@ -25,4 +25,6 @@ export const useDogs = () => {
       setLoading(false);
     }
   };
+
+  return { fetchBreeds, error, loading, dogs, searchResults, breeds };
 };
