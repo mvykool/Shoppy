@@ -1,5 +1,5 @@
 :root {
-  --green-leaf: #acd3a8;
+  --green-leaf: #8ab2a6;
   --green-leaf-dark: #1f7d53;
   --background-offwhite: #f6f1de;
 }
@@ -27,6 +27,41 @@ i {
 
 .logo {
   text-decoration: none;
+  color: black;
+  display: flex;
+  gap: 0.3rem;
+}
+
+form {
+  display: flex;
+  align-items: center;
+
+  .input-search {
+    background-color: white;
+    display: flex;
+    height: 2rem;
+    padding: 0 0.4rem;
+    border: 1px solid #ddd;
+    align-items: center;
+
+    input {
+      background-color: transparent;
+      outline: none;
+      border: none;
+    }
+  }
+
+  button {
+    height: 2rem;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: var(--green-leaf-dark);
+  }
+  button:hover {
+    cursor: pointer;
+    background-color: var(--green-leaf);
+  }
 }
 
 .navOne {
