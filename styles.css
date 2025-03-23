@@ -21,7 +21,17 @@ nav {
   width: 100%;
 }
 
-i {
+/* NAVAR STYLES NAVBAR ONE*/
+
+.navOne {
+  width: 100%;
+  display: flex;
+  min-height: 5rem;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logo-icon {
   color: var(--green-leaf-dark);
 }
 
@@ -64,13 +74,45 @@ form {
   }
 }
 
-.navOne {
-  width: 100%;
+.navbar-fav-cart {
   display: flex;
-  min-height: 5rem;
-  justify-content: space-around;
-  align-items: center;
+
+  i {
+    color: #gray;
+    font-size: 24px;
+  }
+
+  #favorite {
+    border-right: 1px solid gray;
+    padding: 0 1rem;
+  }
+
+  #cart {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    padding: 0 1rem;
+
+    .cart-amount-bubble {
+      border-radius: 50%;
+      background-color: var(--green-leaf-dark);
+      color: #fff;
+      height: 20px;
+      width: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+  }
 }
+
+/* NAVAR STYLES NAVBAR ONE*/
 
 .navTwo {
   width: 100%;

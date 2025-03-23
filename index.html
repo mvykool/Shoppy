@@ -14,7 +14,7 @@
     <!-- Navbar -->
     <nav>
       <div id="nav-one" class="navOne">
-        <a href="/" class="logo"><i class="bx bxs-leaf"></i>Shoppy</a>
+        <a href="/" class="logo"><i class="bx bxs-leaf logo-icon"></i>Shoppy</a>
 
         <form>
           <label class="sr-only">search</label>
@@ -26,9 +26,12 @@
         </form>
 
         <!-- favorites and cart -->
-        <div>
-          <button id="favorite"></button>
-          <button id="cart"></button>
+        <div class="navbar-fav-cart">
+          <button id="favorite"><i class="bx bx-heart"></i></button>
+          <button id="cart">
+            <i class="bx bx-cart"></i>
+            <span id="cart-amount" class="cart-amount-bubble">0</span>
+          </button>
         </div>
       </div>
       <div id="nav-two" class="navTwo">
