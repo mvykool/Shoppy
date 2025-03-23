@@ -4,8 +4,10 @@
   --background-offwhite: #f6f1de;
 }
 body {
+  font-family: "Winky Sans", sans-serif;
   background-color: black;
   box-sizing: content-box;
+  overflow-x: hidden;
 }
 
 .sr-only {
@@ -115,7 +117,35 @@ form {
 /* NAVAR STYLES NAVBAR ONE*/
 
 .navTwo {
-  width: 100%;
-  background-color: gray;
+  width: 100wv;
+  background-color: #ddd;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12%;
+
+  ul {
+    padding-inline: 0;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+
+  a {
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    text-decoration: none;
+  }
+
+  .phone-number {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    i {
+      font-size: 20px;
+    }
+  }
 }
