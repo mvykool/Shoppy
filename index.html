@@ -4,17 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Euonia</title>
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="./styles.css" rel="stylesheet" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- Navbar -->
     <nav>
-      <a href="/">Logo</a>
-      <ul>
-        <li><a href="/" />home</li>
-        <li><a href="/" />about</li>
-        <li><a href="/" />contact</li>
-      </ul>
+      <div id="nav-one">
+        <a href="/">Logo</a>
+
+        <input type="search" />
+
+        <!-- favorites and cart -->
+        <div>
+          <button id="favorite"></button>
+          <button id="cart"></button>
+        </div>
+      </div>
+      <div id="nav-two">
+        <ul>
+          <li><a href="/" />home</li>
+          <li><a href="/" />about</li>
+          <li><a href="/" />contact</li>
+        </ul>
+      </div>
     </nav>
 
     <!-- hero section -->
@@ -65,4 +81,6 @@
       </section>
     </footer>
   </body>
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  <script src="./index.js" defer></script>
 </html>
