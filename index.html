@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Euonia</title>
+    <title>Shoppy</title>
     <link href="./styles.css" rel="stylesheet" />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
@@ -13,10 +13,17 @@
   <body>
     <!-- Navbar -->
     <nav>
-      <div id="nav-one">
-        <a href="/">Logo</a>
+      <div id="nav-one" class="navOne">
+        <a href="/" class="logo"><i class="bx bxs-leaf"></i>Shoppy</a>
 
-        <input type="search" />
+        <form>
+          <label class="sr-only">search</label>
+          <div>
+            <i class="bx bx-search"></i>
+            <input type="search" placeholder="Search for a product" />
+          </div>
+          <button type="submit">Search</button>
+        </form>
 
         <!-- favorites and cart -->
         <div>
@@ -24,7 +31,7 @@
           <button id="cart"></button>
         </div>
       </div>
-      <div id="nav-two">
+      <div id="nav-two" class="navTwo">
         <ul>
           <li><a href="/" />home</li>
           <li><a href="/" />about</li>
