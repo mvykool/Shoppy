@@ -1,0 +1,9 @@
+.banner-pictures {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+
+img {
+  height: 200px;
+  width: 200px;
+}
