@@ -1,13 +1,13 @@
 :root {
   --green-leaf: #8ab2a6;
   --green-leaf-dark: #1f7d53;
-  --background-offwhite: #f6f1de;
+  --background-offwhite: #fdfaf6;
 }
 body {
   font-family: "Winky Sans", sans-serif;
-  background-color: black;
   box-sizing: content-box;
   overflow-x: hidden;
+  background-color: var(--background-offwhite);
   margin: 0;
   padding: 0;
 }
@@ -19,7 +19,6 @@ body {
 /* NAVBAR STYLES */
 
 nav {
-  background-color: var(--background-offwhite);
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -153,7 +152,7 @@ form {
 }
 
 main {
-  height: 90vh;
+  height: 70vh;
 }
 
 /*  FOOTER STYLES */
