@@ -8,6 +8,8 @@ body {
   background-color: black;
   box-sizing: content-box;
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 .sr-only {
@@ -146,6 +148,60 @@ form {
 
     i {
       font-size: 20px;
+    }
+  }
+}
+
+main {
+  height: 90vh;
+}
+
+/*  FOOTER STYLES */
+footer {
+  background-color: #ddd;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  text-decoration: none;
+
+  .footer-sectionOne-text {
+    width: 250px;
+    color: black;
+  }
+}
+
+.footer-sectionOne-list {
+  padding-inline: 0;
+  li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+}
+
+.sectionTwo {
+  display: flex;
+  padding: 3rem;
+  gap: 2rem;
+}
+
+.sectionTwo-list {
+  padding-inline: 0;
+  li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    a {
+      text-decoration: none;
+      color: black;
     }
   }
 }
