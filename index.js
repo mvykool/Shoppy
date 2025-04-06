@@ -19,6 +19,18 @@ async function pageLoader(page) {
   mainContent.innerHTML = html;
   mainContent.classList.remove("loader");
 
+  //load corresponding js file to each html file
+  //example, src/home/home.html becomes src/home/home.js
+  const jsPath = page.replace(".html", ".js");
+  //create a new script in memory, this is a DOM methor to create elements
+  const script = document.createElement("script");
+
+  //set the 'src' attribute from script element to point to our corresponding JS file
+  script.src = jsPath;
+
+  //append the newly created script tag to the end of the body
+  document.body.appendChild(script);
+
   //push the string to the URL
   history.pushState({ page: page }, null, `#${page.slice(11)}`);
 }
