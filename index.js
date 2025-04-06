@@ -29,6 +29,7 @@ async function pageLoader(page) {
   script.src = jsPath;
 
   //append the newly created script tag to the end of the body
+  //this will insert the script in the DOM
   document.body.appendChild(script);
 
   //push the string to the URL
