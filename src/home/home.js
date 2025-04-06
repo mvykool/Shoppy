@@ -1,7 +1,7 @@
 //first get the container by its class
 console.log("hello world");
 
-const productsContainer = document.querySelector(".product-section");
+const container = document.querySelector(".product-section");
 
 //fetch products, and store them in a variable
 let products = [];
@@ -10,8 +10,13 @@ const fetchData = async () => {
   try {
     const response = await fetch("https://fakestoreapi.com/products");
 
-    console.log(response);
-    return response.json();
+    if (!response.ok) {
+      console.log("error");
+    }
+
+    const data = await response.json();
+
+    console.log(data);
   } catch (error) {}
 };
 
