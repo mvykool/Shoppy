@@ -39,7 +39,9 @@ const displayData = async (data) => {
   data.forEach((product) => {
     const liElement = document.createElement("li");
 
-    liElement.textContent = product.title;
+    products = product.title;
+
+    liElement.textContent = products;
 
     listContainer.append(liElement);
   });
