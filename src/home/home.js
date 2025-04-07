@@ -2,7 +2,6 @@
 
 const container = document.querySelector(".product-section");
 const listContainer = document.querySelector("#list-container");
-const liElement = document.createElement("li");
 
 //fetch products, and store them in a variable
 let products = [];
@@ -38,6 +37,13 @@ const fetchData = async () => {
 //create a loop, that append the title of each product to the a liElement, and append the liElements to #list-container
 const displayData = async (data) => {
   console.log(data);
+  data.forEach((product) => {
+    const liElement = document.createElement("li");
+
+    liElement.textContent = product.title;
+
+    listContainer.append(liElement);
+  });
 };
 
 main();
