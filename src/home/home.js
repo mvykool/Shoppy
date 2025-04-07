@@ -7,6 +7,18 @@ const liElement = document.createElement("li");
 //fetch products, and store them in a variable
 let products = [];
 
+//set initial main function
+
+async function main() {
+  try {
+    const data = await fetchData();
+
+    displayData(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 const fetchData = async () => {
   try {
     const response = await fetch("https://fakestoreapi.com/products");
@@ -17,23 +29,15 @@ const fetchData = async () => {
 
     const data = await response.json();
 
-    products = data;
+    return data;
   } catch (error) {
     console.log(error);
   }
 };
 
-fetchData();
-
 //create a loop, that append the title of each product to the a liElement, and append the liElements to #list-container
+const displayData = async (data) => {
+  console.log(data);
+};
 
-console.log(products.length);
-
-if (!products) {
-  function display() {
-    products.forEach((product) => {
-      console.log(product.title);
-    });
-  }
-  display();
-}
+main();
