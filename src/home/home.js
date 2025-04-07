@@ -34,9 +34,8 @@ const fetchData = async () => {
   }
 };
 
-//create a loop, that append the title of each product to the a liElement, and append the liElements to #list-container
+//create a loop, that append the title of each product a liElement that will create a new li tag, and append the liElements to #list-container
 const displayData = async (data) => {
-  console.log(data);
   data.forEach((product) => {
     const liElement = document.createElement("li");
 
