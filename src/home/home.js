@@ -37,16 +37,20 @@ const fetchData = async () => {
 //create a loop, that append the title of each product a liElement that will create a new li tag, and append the liElements to #list-container
 const displayData = async (data) => {
   data.forEach((product) => {
-    const liEl = document.createElement("li");
+    const pEl = document.createElement("p");
     const imgEl = document.createElement("img");
+    const itemContainer = document.createElement("div");
 
     products = { title: product.title, image: product.image };
 
-    liEl.textContent = products.title;
+    pEl.textContent = products.title;
     imgEl.src = products.image;
 
-    listContainer.append(liEl);
-    listContainer.append(imgEl);
+    //add the proper class to manipulate
+    itemContainer.classList.add("item-container");
+    itemContainer.append(pEl);
+    itemContainer.append(imgEl);
+    listContainer.append(itemContainer);
   });
 };
 
