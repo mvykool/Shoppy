@@ -4,7 +4,7 @@ const container = document.querySelector(".product-section");
 const listContainer = document.querySelector("#list-container");
 
 //fetch products, and store them in a variable
-let products = [];
+let products = [{}];
 
 //set initial main function
 
@@ -37,13 +37,16 @@ const fetchData = async () => {
 //create a loop, that append the title of each product a liElement that will create a new li tag, and append the liElements to #list-container
 const displayData = async (data) => {
   data.forEach((product) => {
-    const liElement = document.createElement("li");
+    const liEl = document.createElement("li");
+    const imgEl = document.createElement("img");
 
-    products = product.title;
+    products = { title: product.title, image: product.image };
 
-    liElement.textContent = products;
+    liEl.textContent = products.title;
+    imgEl.src = products.image;
 
-    listContainer.append(liElement);
+    listContainer.append(liEl);
+    listContainer.append(imgEl);
   });
 };
 
