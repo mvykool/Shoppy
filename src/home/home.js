@@ -48,8 +48,8 @@ const displayData = async (data) => {
 
     //add the proper class to manipulate
     itemContainer.classList.add("item-container");
-    itemContainer.append(pEl);
     itemContainer.append(imgEl);
+    itemContainer.append(pEl);
     listContainer.append(itemContainer);
   });
 };

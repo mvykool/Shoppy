@@ -3,6 +3,30 @@
   grid-template-columns: auto auto auto auto;
 }
 
+.list-container {
+  display: flex;
+  padding: 4rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+
+  .item-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 300px;
+
+    p {
+      width: 250px;
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+      text-overflow: ellipsis;
+      position: relative;
+    }
+  }
+}
+
 img {
   height: 200px;
   width: 200px;
