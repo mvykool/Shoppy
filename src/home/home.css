@@ -1,6 +1,12 @@
-.banner-pictures {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
+.product-section {
+  display: flex;
+  padding: 2rem;
+  justify-content: center;
+
+  img {
+    width: 70%;
+    height: 20rem;
+  }
 }
 
 .list-container {
