@@ -1,5 +1,3 @@
-//first get the container by its class
-
 const container = document.querySelector(".product-section");
 const listContainer = document.querySelector("#list-container");
 
